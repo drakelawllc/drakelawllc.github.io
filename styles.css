@@ -1,110 +1,148 @@
 :root {
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --bg: #ffffff;
-  --accent: #111827;
+  --text: #2d3748;
+  --muted: #4a5568;
+  --border: #e2e8f0;
+  --bg: #f8fafc; 
+  --surface: #ffffff; 
+  --accent: #1a202c; 
+  --primary: #1e3a8a; 
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
   background: var(--bg);
   color: var(--text);
-  max-width: 820px;
-  margin: 48px auto;
-  padding: 0 20px;
-  line-height: 1.7;
+  max-width: 860px;
+  margin: 64px auto;
+  padding: 0 24px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 h1 {
-  font-size: 34px;
-  margin-bottom: 10px;
-  letter-spacing: -0.02em;
-  color: var(--accent);
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 16px;
 }
 
 h2 {
   font-size: 20px;
-  margin-top: 32px;
-  margin-bottom: 12px;
-  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
 }
 
 p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
 ul {
-  padding-left: 20px;
-  margin: 0;
+  padding-left: 24px;
+  margin: 0 0 24px 0;
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+li::marker {
+  color: var(--primary);
 }
 
 .contact {
-  margin-top: 28px;
-  padding: 16px 18px;
+  margin-top: 24px;
+  padding: 24px;
   border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fafafa;
+  border-radius: 6px;
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
 
 .contact p {
-  margin: 6px 0;
-  color: var(--muted);
+  margin: 4px 0;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.contact p:first-child {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 16px;
 }
 
 a {
-  color: #1d4ed8;
+  color: var(--primary);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:hover {
+  color: #0f172a;
   text-decoration: underline;
 }
 
-/* ==========================================
-   ATTORNEY PROFILE PHOTO LAYOUT
-   ========================================== */
-
 .profile-layout {
   display: flex;
-  gap: 32px;
+  gap: 48px;
   align-items: flex-start;
-  margin-top: 24px;
+  margin-top: 32px;
 }
 
 .bio-text {
   flex: 1;
 }
 
+.bio-text h2 {
+  margin-top: 0; 
+}
+
 .bio-image {
   flex-shrink: 0;
-  margin-top: 32px; /* Visual alignment with the top of the H2 'ABOUT:' text */
 }
 
 .bio-image img {
-  width: 240px;
+  width: 280px;
   height: auto;
-  border-radius: 8px; /* Perfectly matches your .contact box radius */
-  border: 1px solid var(--border); /* Matches your clean border styling */
+  border-radius: 4px; 
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   display: block;
 }
 
-/* Mobile responsive fallback */
-@media (max-width: 600px) {
-  .profile-layout {
-    flex-direction: column-reverse; /* Places text on top, image below on small screens */
-    gap: 16px;
+@media (max-width: 768px) {
+  body {
+    margin: 32px auto;
   }
   
+  .profile-layout {
+    flex-direction: column-reverse; 
+    gap: 32px;
+  }
+  
+  .bio-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .bio-image img {
     width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
+    max-width: 320px;
+  }
+
+  h1 {
+    font-size: 30px;
   }
 }
