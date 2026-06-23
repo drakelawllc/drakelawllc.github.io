@@ -66,3 +66,45 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+/* ==========================================
+   ATTORNEY PROFILE PHOTO LAYOUT
+   ========================================== */
+
+.profile-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+.bio-text {
+  flex: 1;
+}
+
+.bio-image {
+  flex-shrink: 0;
+  margin-top: 32px; /* Visual alignment with the top of the H2 'ABOUT:' text */
+}
+
+.bio-image img {
+  width: 240px;
+  height: auto;
+  border-radius: 8px; /* Perfectly matches your .contact box radius */
+  border: 1px solid var(--border); /* Matches your clean border styling */
+  display: block;
+}
+
+/* Mobile responsive fallback */
+@media (max-width: 600px) {
+  .profile-layout {
+    flex-direction: column-reverse; /* Places text on top, image below on small screens */
+    gap: 16px;
+  }
+  
+  .bio-image img {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
